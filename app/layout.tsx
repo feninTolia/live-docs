@@ -1,9 +1,8 @@
 import { cn } from '@/lib/utils';
-import { ClerkProvider } from '@clerk/nextjs';
-import { dark } from '@clerk/themes';
 import { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
+import Providers from './providers';
 
 const fontSans = FontSans({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -18,12 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider
-      appearance={{
-        baseTheme: dark,
-        variables: { colorPrimary: '#3371FF', fontSize: '16px' },
-      }}
-    >
+    <Providers>
       <html lang="en" suppressHydrationWarning>
         <head />
         <body
@@ -35,6 +29,6 @@ export default function RootLayout({
           {children}
         </body>
       </html>
-    </ClerkProvider>
+    </Providers>
   );
 }
