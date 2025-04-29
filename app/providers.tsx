@@ -1,7 +1,6 @@
 'use client';
 import Loader from '@/components/Loader';
-import { ClerkProvider } from '@clerk/nextjs';
-import { dark } from '@clerk/themes';
+import { getClerkUsers } from '@/lib/actions/user.actions';
 import {
   ClientSideSuspense,
   LiveblocksProvider,
@@ -10,18 +9,15 @@ import { ReactNode } from 'react';
 
 const Providers = ({ children }: { children: ReactNode }) => {
   return (
-    <ClerkProvider
-      appearance={{
-        baseTheme: dark,
-        variables: { colorPrimary: '#3371FF', fontSize: '16px' },
+    <LiveblocksProvider
+      authEndpoint={'/api/liveblocks-auth'}
+      resolveUsers={async ({ userIds }) => {
+        const users = await getClerkUsers({ userIds });
+        return users;
       }}
     >
-      <LiveblocksProvider authEndpoint={'/api/liveblocks-auth'}>
-        <ClientSideSuspense fallback={<Loader />}>
-          {children}
-        </ClientSideSuspense>
-      </LiveblocksProvider>
-    </ClerkProvider>
+      <ClientSideSuspense fallback={<Loader />}>{children}</ClientSideSuspense>
+    </LiveblocksProvider>
   );
 };
 

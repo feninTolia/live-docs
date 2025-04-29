@@ -1,28 +1,27 @@
 'use client';
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignUpButton,
-  UserButton,
-} from '@clerk/nextjs';
 import { ClientSideSuspense, RoomProvider } from '@liveblocks/react';
+import ActiveCollaborators from './ActiveCollaborators';
 import { Editor } from './editor/Editor';
 import Header from './Header';
 import Loader from './Loader';
 import { UserSection } from './UserSection';
 
-const CollaborativeRoom = () => {
+const CollaborativeRoom = ({
+  roomId,
+  roomMetadata,
+}: CollaborativeRoomProps) => {
   return (
-    <RoomProvider id="my-room">
+    <RoomProvider id={roomId}>
       <ClientSideSuspense fallback={<Loader />}>
         <div className="collaborative-room">
           <Header>
             <div className="flex w-fit items-center justify-center gap-2">
               <p className="document-title">Untitled 1</p>
             </div>
-
-            <UserSection />
+            <div className="flex w-full  flex-1 justify-end items-center gap-2 sm:gap-3">
+              <ActiveCollaborators />
+              <UserSection />
+            </div>
           </Header>
           <Editor />
         </div>

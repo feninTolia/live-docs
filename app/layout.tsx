@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
 import Providers from './providers';
+import { ClerkProvider } from '@clerk/nextjs';
+import { dark } from '@clerk/themes';
 
 const fontSans = FontSans({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -17,7 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Providers>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+        variables: { colorPrimary: '#3371FF', fontSize: '16px' },
+      }}
+    >
       <html lang="en" suppressHydrationWarning>
         <head />
         <body
@@ -26,9 +33,9 @@ export default function RootLayout({
             fontSans.variable
           )}
         >
-          {children}
+          <Providers>{children}</Providers>
         </body>
       </html>
-    </Providers>
+    </ClerkProvider>
   );
 }
