@@ -10,6 +10,7 @@ import { ClientSideSuspense, RoomProvider } from '@liveblocks/react';
 import { Editor } from './editor/Editor';
 import Header from './Header';
 import Loader from './Loader';
+import { UserSection } from './UserSection';
 
 const CollaborativeRoom = () => {
   return (
@@ -21,13 +22,7 @@ const CollaborativeRoom = () => {
               <p className="document-title">Untitled 1</p>
             </div>
 
-            <SignedOut>
-              <SignInButton />
-              <SignUpButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
+            <UserSection />
           </Header>
           <Editor />
         </div>

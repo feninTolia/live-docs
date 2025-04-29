@@ -1,9 +1,11 @@
-'use client';
+import CollaborativeRoom from '@/components/CollaborativeRoom';
 
-type Props = {};
-
-const DocumentPage = (props: Props) => {
-  return <div></div>;
+const DocumentPage = () => {
+  return (
+    <div className="flex w-full flex-col items-center ">
+      <CollaborativeRoom />
+    </div>
+  );
 };
 
 export default DocumentPage;

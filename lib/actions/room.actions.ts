@@ -6,7 +6,7 @@ import { RoomAccesses } from '@liveblocks/node';
 import { revalidatePath } from 'next/cache';
 import { parseStringify } from '../utils';
 
-export const crateDocument = async ({
+export const createDocument = async ({
   userId,
   email,
 }: CreateDocumentParams) => {
