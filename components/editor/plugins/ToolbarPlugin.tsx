@@ -77,7 +77,7 @@ export default function ToolbarPlugin() {
           $updateToolbar();
           return false;
         },
-        LowPriority,
+        LowPriority
       ),
       editor.registerCommand(
         CAN_UNDO_COMMAND,
@@ -85,7 +85,7 @@ export default function ToolbarPlugin() {
           setCanUndo(payload);
           return false;
         },
-        LowPriority,
+        LowPriority
       ),
       editor.registerCommand(
         CAN_REDO_COMMAND,
@@ -93,8 +93,8 @@ export default function ToolbarPlugin() {
           setCanRedo(payload);
           return false;
         },
-        LowPriority,
-      ),
+        LowPriority
+      )
     );
   }, [editor, $updateToolbar]);
 
@@ -123,7 +123,7 @@ export default function ToolbarPlugin() {
   }
 
   return (
-    <div className="toolbar" ref={toolbarRef}>
+    <div className="toolbar bg-dark-200" ref={toolbarRef}>
       <button
         disabled={!canUndo}
         onClick={() => {
@@ -257,7 +257,7 @@ function useActiveBlock() {
     (onStoreChange: () => void) => {
       return editor.registerUpdateListener(onStoreChange);
     },
-    [editor],
+    [editor]
   );
 
   const getSnapshot = useCallback(() => {

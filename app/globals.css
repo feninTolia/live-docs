@@ -10,7 +10,7 @@
 /* ========================================== TAILWIND STYLES */
 @layer base {
   :root {
-    background: #09111f;
+    background: #0d1729;
     color: #fff;
     margin: 0;
   }
@@ -83,7 +83,7 @@
   }
 
   .toolbar-wrapper {
-    @apply z-50 custom-scrollbar w-screen overflow-auto border-y border-dark-300 bg-dark-100 pl-3 pr-4 shadow-sm;
+    @apply z-50 custom-scrollbar w-screen overflow-auto border-b border-dark-300 bg-dark-100 pl-3 pr-4 shadow-sm;
   }
 
   .editor-wrapper {
@@ -206,16 +206,16 @@
 
 /* ======================== Liveblocks Override */
 .lb-root {
-  --lb-accent-subtle: #0b1527;
+  --lb-accent-subtle: #112240;
   --lb-radius: 0px;
-  --lb-dynamic-background: #1b2840;
+  --lb-dynamic-background: #2c4067;
 }
 
 .lb-comment,
 .lb-thread-comments,
 .lb-composer,
 .lb-comment-reaction {
-  background-color: #0f1c34;
+  background-color: #274170;
   color: #fff;
 }
 
@@ -224,7 +224,7 @@
 }
 
 .lb-button:where([data-variant='primary']) {
-  background-color: #161e30;
+  background-color: #243150;
   color: #b4c6ee;
   padding: 8px;
 }
@@ -262,6 +262,7 @@
 .lb-dropdown-item-icon,
 .lb-composer-editor {
   color: #fff;
+  outline: none;
 }
 
 .lb-composer-action {
@@ -269,7 +270,7 @@
 }
 
 .lb-comment-content {
-  background: #0b1527;
+  background: #1a305a;
   margin-top: 16px;
   padding: 12px;
   border-radius: 4px;
@@ -289,7 +290,7 @@
 }
 
 .lb-root:where(:not(.lb-root .lb-root)) {
-  --lb-dynamic-background: #1b2840;
+  --lb-dynamic-background: #293e65;
   color: #fff;
 }
 
@@ -303,5 +304,5 @@
 }
 
 .lb-elevation {
-  background: #0f1c34;
+  background: #1e3767;
 }

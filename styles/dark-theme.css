@@ -50,14 +50,14 @@ body {
 
 .editor-container {
   border-radius: 2px;
-  color: #000;
+  color: #212121;
   line-height: 20px;
   font-weight: 400;
   text-align: left;
 }
 
 .editor-inner {
-  background: #0b1527;
+  background: #11203c;
   position: relative;
 }
 

@@ -31,13 +31,21 @@ const config = {
           400: '#DD4F56',
           500: '#DC4349',
         },
+        // dark: {
+        //   100: '#09111F',
+        //   200: '#0B1527',
+        //   300: '#0F1C34',
+        //   350: '#12213B',
+        //   400: '#27344D',
+        //   500: '#2E3D5B',
+        // },
         dark: {
-          100: '#09111F',
-          200: '#0B1527',
-          300: '#0F1C34',
-          350: '#12213B',
-          400: '#27344D',
-          500: '#2E3D5B',
+          100: '#1E2A3A', // Much brighter and bluer than #09111F
+          200: '#24354A', // Much brighter and bluer than #0B1527
+          300: '#2C445C', // Much brighter and bluer than #0F1C34
+          350: '#33516E', // Much brighter and bluer than #12213B
+          400: '#446A8A', // Much brighter and bluer than #27344D
+          500: '#527EA3', // Much brighter and bluer than #2E3D5B
         },
       },
       fontFamily: {

@@ -20,7 +20,6 @@ const Home = async () => {
   const documents = (await getDocuments(
     clerkUser.emailAddresses[0].emailAddress
   )) as Page<RoomData>;
-  console.log(documents.data[0].metadata);
 
   return (
     <main className="home-container">
