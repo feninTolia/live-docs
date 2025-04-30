@@ -215,7 +215,7 @@
 .lb-thread-comments,
 .lb-composer,
 .lb-comment-reaction {
-  background-color: #274170;
+  background-color: #1f365f;
   color: #fff;
 }
 
@@ -270,7 +270,7 @@
 }
 
 .lb-comment-content {
-  background: #1a305a;
+  background: #16294c;
   margin-top: 16px;
   padding: 12px;
   border-radius: 4px;

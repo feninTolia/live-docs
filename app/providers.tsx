@@ -1,20 +1,38 @@
 'use client';
 import Loader from '@/components/Loader';
-import { getClerkUsers } from '@/lib/actions/user.actions';
+import { getClerkUsers, getDocumentUsers } from '@/lib/actions/user.actions';
+import { useUser } from '@clerk/nextjs';
+import {
+  ResolveMentionSuggestionsArgs,
+  ResolveUsersArgs,
+} from '@liveblocks/client';
 import {
   ClientSideSuspense,
   LiveblocksProvider,
 } from '@liveblocks/react/suspense';
-import { ReactNode } from 'react';
+import { ReactNode, useCallback } from 'react';
+
+const resolveUsers = async ({ userIds }: ResolveUsersArgs) =>
+  getClerkUsers({ userIds });
 
 const Providers = ({ children }: { children: ReactNode }) => {
+  const { user: clerkUser } = useUser();
+
+  const resolveMentionSuggestions = useCallback(
+    async ({ text, roomId }: ResolveMentionSuggestionsArgs) =>
+      getDocumentUsers({
+        roomId,
+        text,
+        currentUserId: clerkUser?.emailAddresses[0].emailAddress,
+      }),
+    [clerkUser?.emailAddresses]
+  );
+
   return (
     <LiveblocksProvider
       authEndpoint={'/api/liveblocks-auth'}
-      resolveUsers={async ({ userIds }) => {
-        const users = await getClerkUsers({ userIds });
-        return users;
-      }}
+      resolveUsers={resolveUsers}
+      resolveMentionSuggestions={resolveMentionSuggestions}
     >
       <ClientSideSuspense fallback={<Loader />}>{children}</ClientSideSuspense>
     </LiveblocksProvider>
