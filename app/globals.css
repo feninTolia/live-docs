@@ -127,7 +127,7 @@
   }
 
   .share-input {
-    @apply h-11 flex-1 border-none bg-dark-400 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+    @apply h-11 flex-1 border-none bg-dark-200 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
   }
 
   .remove-btn {

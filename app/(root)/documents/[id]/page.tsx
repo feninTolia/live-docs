@@ -30,11 +30,6 @@ const DocumentPage = async ({ params: { id } }: SearchParamProps) => {
       : 'viewer',
   }));
 
-  console.log(
-    '----- -----',
-    room.usersAccesses[clerkUser.emailAddresses[0].emailAddress]
-  );
-
   const currentUserType = room.usersAccesses[
     clerkUser.emailAddresses[0].emailAddress
   ]?.[0].includes('room:write')
