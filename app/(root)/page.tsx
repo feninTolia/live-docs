@@ -1,6 +1,7 @@
 import AddDocumentBtn from '@/components/AddComponentBtn';
 import { DeleteModal } from '@/components/DeleteModal';
 import Header from '@/components/Header';
+import Notifications from '@/components/Notifications';
 import { UserSection } from '@/components/UserSection';
 import { getDocuments } from '@/lib/actions/room.actions';
 import { dateConverter } from '@/lib/utils';
@@ -9,7 +10,6 @@ import { Page, RoomData } from '@liveblocks/node';
 import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { Suspense } from 'react';
 
 const Home = async () => {
   const clerkUser = await currentUser();
@@ -26,10 +26,8 @@ const Home = async () => {
     <main className="home-container">
       <Header className="sticky left-0 top-0">
         <div className="flex items-center gap-2 lg:gap-4">
-          <span>Notifications</span>
-          <Suspense fallback={null}>
-            <UserSection />
-          </Suspense>
+          <Notifications />
+          <UserSection />
         </div>
       </Header>
 
