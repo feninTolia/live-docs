@@ -77,4 +77,5 @@ declare type AddDocumentBtnProps = {
 
 declare type DeleteModalProps = { roomId: string };
 
+// @ts-expect-error ???
 declare type ThreadWrapperProps = { thread: ThreadData<BaseMetadata> };
