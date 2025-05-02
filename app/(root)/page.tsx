@@ -1,4 +1,5 @@
 import AddDocumentBtn from '@/components/AddComponentBtn';
+import { DeleteModal } from '@/components/DeleteModal';
 import Header from '@/components/Header';
 import { UserSection } from '@/components/UserSection';
 import { getDocuments } from '@/lib/actions/room.actions';
@@ -64,8 +65,7 @@ const Home = async () => {
                     </p>
                   </div>
                 </Link>
-
-                {/* //TODO: Add delete button */}
+                <DeleteModal roomId={id} />
               </li>
             ))}
           </ul>
